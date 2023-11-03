@@ -1,0 +1,23 @@
+body {
+    background-image: url('/static/img/fondo.jpg');
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.navbar h1 {
+    margin: 0;
+    padding: 0;
+    width: 20%;
+}
+
+.navbar img {
+    margin-right: 70%;
+}
+
+.logo {
+    width: 100px;
+}

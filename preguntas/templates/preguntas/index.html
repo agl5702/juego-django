@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Meta tags, enlaces a estilos y scripts, etc. -->
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="header container-fluid">
+            <h1>Juego con</h1>
+            <img class="logo" src="{% static 'img/django.png' %}" alt="">
+        </div>
+    </nav>
+
+    <form id="preguntas-form">
+        {% csrf_token %} {% for pregunta in preguntas %}
+        <h2>{{ pregunta }}</h2>
+        {% for respuesta in respuestas %} {% if respuesta.pregunta == pregunta %}
+        <label>
+            <input type="checkbox" name="respuestas[]" value="{{ respuesta.id }}"> {{ respuesta }}
+        </label> {% endif %} {% endfor %} {% endfor %}
+        <button type="submit">Enviar respuestas</button>
+    </form>
+
+    <script src="{% static 'main.js' %}"></script>
+</body>
+
+</html>
